@@ -1,0 +1,19 @@
+Evaluate the truthiness of an object without getting out the logical
+expressions
+
+    true.true?                # => true
+    false.true?               # => false
+    "true".true?              # => false
+    nil.true?                 # => false
+
+    false.false?              # => true
+    true.false?               # => false
+    "false".false?            # => false
+    nil.false?                # => false
+
+    "almost anything".truthy? # => true
+    false.truthy?             # => false
+    nil.truthy?               # => false
+
+NOTE: The truthy? method original came from another gem called "truthy"
+but I determined that it was still the best name for that type of method
