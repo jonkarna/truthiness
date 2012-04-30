@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    truthiness (0.0.1)
+    truthiness (0.1.1)
 
 GEM
   remote: http://rubygems.org/

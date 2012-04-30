@@ -1,13 +1,20 @@
 module Truthiness
 
   def truthy?
-    !!self
+    self.to_s.match(/true|yes|1/i) != nil
   end
 
   def not_truthy?
-    !self
+    !truthy?
   end
-  alias_method :falsey?, :not_truthy?
+
+  def falsey?
+    self.to_s.match(/false|no|0/i) != nil
+  end
+
+  def not_falsey?
+    !falsey?
+  end
 
   def true?
     self == true

@@ -9,9 +9,27 @@ class TruthinessTest < Test::Unit::TestCase
   subject { Object.new }
 
   should "respond to truthy methods" do
-    [:truthy?, :not_truthy?, :falsey?,
-     :true?, :not_true?, :false?, :not_false?].each do |m|
-      assert subject.respond_to?(m)
+    %w[truthy? not_truthy? falsey? not_falsey?
+       true? not_true? false? not_false?].each do |m|
+      assert subject.respond_to?(m), "Not responding to ##{m}"
+    end
+  end
+
+  context "#truthy?" do
+    should "be true for string and integer representations of truth" do
+      assert "true".truthy?
+      assert "yes".truthy?
+      assert 1.truthy?
+      assert true.truthy?
+    end
+  end
+
+  context "#falsey?" do
+    should "be false for string and integer representations of false" do
+      assert "false".falsey?
+      assert "no".falsey?
+      assert 0.falsey?
+      assert false.falsey?
     end
   end
 
